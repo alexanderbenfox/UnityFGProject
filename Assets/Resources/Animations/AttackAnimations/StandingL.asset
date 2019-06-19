@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b947f20f1645c0c46a97a0e4d5aafb3e, type: 3}
+  m_Name: StandingL
+  m_EditorClassIdentifier: 
+  animName: StandingL
+  frames:
+  - sprite: {fileID: 21300058, guid: 4fd76fcb35cb67244bfd83847842af80, type: 3}
+    frameCount: 3
+    type: 3
+    hitBox:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    deltaPosition: {x: 0, y: 0}
+  - sprite: {fileID: 21300060, guid: 4fd76fcb35cb67244bfd83847842af80, type: 3}
+    frameCount: 3
+    type: 3
+    hitBox:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    deltaPosition: {x: 0, y: 0}
+  - sprite: {fileID: 21300062, guid: 4fd76fcb35cb67244bfd83847842af80, type: 3}
+    frameCount: 3
+    type: 3
+    hitBox:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    deltaPosition: {x: 0, y: 0}
+  - sprite: {fileID: 21300064, guid: 4fd76fcb35cb67244bfd83847842af80, type: 3}
+    frameCount: 3
+    type: 3
+    hitBox:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    deltaPosition: {x: 0, y: 0}
+  - sprite: {fileID: 21300066, guid: 4fd76fcb35cb67244bfd83847842af80, type: 3}
+    frameCount: 3
+    type: 3
+    hitBox:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    deltaPosition: {x: 0, y: 0}
+  - sprite: {fileID: 21300068, guid: 4fd76fcb35cb67244bfd83847842af80, type: 3}
+    frameCount: 3
+    type: 3
+    hitBox:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    deltaPosition: {x: 0, y: 0}
+  - sprite: {fileID: 21300070, guid: 4fd76fcb35cb67244bfd83847842af80, type: 3}
+    frameCount: 3
+    type: 3
+    hitBox:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    deltaPosition: {x: 0, y: 0}
+  type: 1
+  totalFrameCount: 20
+  attackData:
+    damage: 0
+    guard: 0
+    frameAdvOnBlock: 0
+    frameAdvOnHit: 0
+    horizontalKnockback: 0
+    verticalKnockback: 0
+    attackDirection: {x: 0, y: 0}
+  imageOffset: {x: -100, y: 0}
+  imageSize: {x: 445, y: 295}
+  nextAnimation: 
