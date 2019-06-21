@@ -27,9 +27,15 @@ public class World : MonoBehaviour
 
     public RectTransform Anchor;
 
+//____________________________________________
+
     private DebugRenderer _debugRenderer;
 
     public bool enableDebug;
+
+    public DebugTextbox player1TB, player2TB;
+
+//____________________________________________
 
     public Player[] players;
 
@@ -38,7 +44,6 @@ public class World : MonoBehaviour
     private List<Hitbox> _hitBoxBounds;
 
     private List<Hurtbox> _hurtboxBounds;
-
     //!
     private Dictionary<string, Sprite[]> _loadedSprites;
     //!
@@ -62,6 +67,10 @@ public class World : MonoBehaviour
         {
             player.Init();
         }
+
+        player1TB.Init();
+        player2TB.Init();
+
         initialized = true;
     }
 
@@ -159,6 +168,16 @@ public class World : MonoBehaviour
             }
             _debugRenderer.AddDebugCollider(players[0].hurtbox);
             _debugRenderer.AddDebugCollider(players[1].hurtbox);
+
+            player1TB.Show();
+            player2TB.Show();
+            player1TB.RenderPlayerState(players[0]);
+            player2TB.RenderPlayerState(players[1]);
+        }
+        else
+        {
+            player1TB.Hide();
+            player2TB.Hide();
         }
     }
 

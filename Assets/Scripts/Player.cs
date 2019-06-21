@@ -258,6 +258,11 @@ public class Player : MonoBehaviour
         initialized = true;
     }
 
+    public PlayerFrameState GetFrameState()
+    {
+        return _currentState.stateData.FrameState;
+    }
+
 
     //do this at the end of frame?
     public void UpdatePlayerDirection(Vector2 lookAtPosition)

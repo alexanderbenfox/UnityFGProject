@@ -28,8 +28,6 @@ public class DebugRenderer : MonoBehaviour
     }
     private List<DrawRectRequest> _rectStack;
 
-    private float _lastDrawTime;
-
     public void Init()
     {
         _rectStack = new List<DrawRectRequest>();
@@ -38,8 +36,6 @@ public class DebugRenderer : MonoBehaviour
         _colors.Add(CollidableType.HITBOX, hitboxColor);
         _colors.Add(CollidableType.HURTBOX, hurtboxColor);
         _colors.Add(CollidableType.STATIC, staticColor);
-
-        _lastDrawTime = Time.time;
 
         StartCoroutine(DrawLoop());
     }
@@ -94,8 +90,8 @@ public class DebugRenderer : MonoBehaviour
 
     private void DrawFilledRect(DrawRectRequest rect)
     {
-        //DrawSolidRectangle(rect.topLeft + new Vector3(0, -debugHitboxBorderWidth, 0), rect.topRight, rect.color);
-        //DrawSolidRectangle(rect.bottomLeft, rect.bottomRight + new Vector3(0, debugHitboxBorderWidth, 0), rect.color);
+        DrawSolidRectangle(rect.topLeft + new Vector3(0, -debugHitboxBorderWidth, 0), rect.topRight, rect.color);
+        DrawSolidRectangle(rect.bottomLeft, rect.bottomRight + new Vector3(0, debugHitboxBorderWidth, 0), rect.color);
 
         Color innerColor = rect.color;
         innerColor.a = .6f;
