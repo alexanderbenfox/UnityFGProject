@@ -58,16 +58,7 @@ public class FGAnimation : ScriptableObject
             {
                 totalFrameCount += (fc - frames[indx].frameCount);
                 frames[indx].frameCount = fc;
-
-                //recalculate the fc list
-                _frameToKeyFrame = new List<int>();
-                for (int i = 0; i < frames.Length; i++)
-                {
-                    for (int j = 0; j < frames[i].frameCount; j++)
-                    {
-                        _frameToKeyFrame.Add(i);
-                    }
-                }
+                RecalculateFrameToKeyFrame();
             }
             if (t != FGAnimationStageType.NUM_TYPES)
                 frames[indx].type = t;
@@ -89,7 +80,7 @@ public class FGAnimation : ScriptableObject
         return null;
     }
 
-    public void RecalculateFrameToKeyFrame()
+    private void RecalculateFrameToKeyFrame()
     {
         _frameToKeyFrame = new List<int>();
         for (int i = 0; i < frames.Length; i++)

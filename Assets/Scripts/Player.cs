@@ -167,7 +167,7 @@ public class PlayerState
 
     public static PlayerState operator +(PlayerState player, FGAttackData data)
     {
-        Vector2 attackDirection = data.attackVector.normalized;
+        Vector2 attackDirection = player.GetDirection() == Direction.LEFT ? data.attackVector.normalized : data.attackVector.normalized * new Vector2(-1, 1);
 
         bool canBlock = !player.CheckState(PlayerFrameState.ATTACK_CANCELLABLE) &&
             !player.CheckState(PlayerFrameState.ATTACK_NONCANCELLABLE) &&

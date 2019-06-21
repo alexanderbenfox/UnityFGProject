@@ -27,6 +27,10 @@ public class World : MonoBehaviour
 
     public RectTransform Anchor;
 
+    private DebugRenderer _debugRenderer;
+
+    public bool enableDebug;
+
     public Player[] players;
 
     public WorldState2D[] staticBounds;
@@ -49,6 +53,9 @@ public class World : MonoBehaviour
     {
         _hitBoxBounds = new List<Hitbox>();
         _hurtboxBounds = new List<Hurtbox>();
+
+        _debugRenderer = this.GetComponent<DebugRenderer>();
+        _debugRenderer.Init();
 
         _loadedSprites = new Dictionary<string, Sprite[]>();
         foreach(Player player in players)
@@ -102,8 +109,11 @@ public class World : MonoBehaviour
         return potentialState;
     }
 
-    void Loop(float dt)
+    void FixedUpdateLoop(float dt)
     {
+        //clean up
+        _hitBoxBounds.Clear();
+
         List<PlayerState> currentStates = new List<PlayerState>();
 
         foreach (Player player in players)
@@ -137,29 +147,36 @@ public class World : MonoBehaviour
             //finally complete the player state - animate and move. Animate should only complete the animation state action
             players[i].AnimateCurrentState(dt);
         }
-
-        //clean up
-        foreach (Hitbox hb in _hitBoxBounds)
-            hb.DebugShow(dt);
-        players[0].hurtbox.DebugShow(dt);
-        players[1].hurtbox.DebugShow(dt);
-        _hitBoxBounds.Clear();
     }
 
-    // Start is called before the first frame update
-    void Start()
+    void Loop(float dt)
     {
+        if (enableDebug)
+        {
+            foreach (Hitbox hb in _hitBoxBounds)
+            {
+                _debugRenderer.AddDebugCollider(hb);
+            }
+            _debugRenderer.AddDebugCollider(players[0].hurtbox);
+            _debugRenderer.AddDebugCollider(players[1].hurtbox);
+        }
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        foreach(Player player in players)
+        float dt = Time.deltaTime;
+        Loop(dt);
+    }
+
+    private void FixedUpdate()
+    {
+        foreach (Player player in players)
         {
             if (!player.initialized)
                 return;
         }
         float dt = Time.fixedDeltaTime;
-        Loop(dt);
+        FixedUpdateLoop(dt);
     }
 }
